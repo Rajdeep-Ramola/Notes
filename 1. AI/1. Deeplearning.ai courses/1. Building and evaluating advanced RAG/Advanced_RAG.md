@@ -247,9 +247,3 @@ tru_recorder = get_prebuilt_trulens_recorder(
     app_id='app_0'
 )
 ```
-
----
-
-## 📝 Notes
-
-- **Service context** — a wrapper for creating an index; contains the LLM, embedding model, and node parser.
