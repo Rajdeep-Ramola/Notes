@@ -37,6 +37,8 @@
 
 ---
 
+![Scope of evaluation](assets/image1.png)
+
 ## 3. Common Types of Evaluations for LLM Systems
 
 - **Hallucinations** — Measures whether the model generates factually incorrect or fabricated information not grounded in reality or provided context.
@@ -45,6 +47,8 @@
 - **Toxicity** — Assesses whether the model output contains harmful, offensive, biased, or unsafe language.
 - **Summarization performance** — Measures how well the model produces concise, accurate, and complete summaries of input content.
 - **Code writing correctness and readability** — Evaluates whether generated code is functionally correct, efficient, and easy for humans to understand and maintain.
+
+![LLM based applications](assets/image2.png)
 
 ---
 
@@ -165,6 +169,8 @@ print(session.url)  # open the link to see traces, tools calls, etc.
 
 - **Human Annotations** — Use human labelers or user feedback to evaluate your application outputs
   - Using responses from users
+
+![Decision diagram](assets/image3.png)  
 
 ---
 
@@ -370,6 +376,8 @@ client.log_evaluations(
 print("Phoenix UI:", session.url)
 ```
 
+![Evaluating a router](assets/image4.png)
+
 ---
 
 ### 6.3 Evaluating Skills
@@ -381,6 +389,8 @@ Skills can be evaluated using standard LLM to test:
 - Question and answer correctness
 - Generated code readability
 - Summarization
+
+![Evaluating skills](assets/image5.png)
 
 ---
 
@@ -395,6 +405,8 @@ Skills can be evaluated using standard LLM to test:
 2. Record the number of steps taken for each query
 3. Find the length of the optimal path
 4. Calculate the convergence score — what percentage of the time is our agent taking the optimal path, for a given set of inputs?
+
+   ![Convergence score](assets/image6.png)
 
 > A convergence score of 1 means the agent is taking the optimal path 100% of the time.
 
@@ -574,6 +586,8 @@ print(final_df[["input", "output", "evaluations"]])
 - **Evaluate experiment**
   - Code based evals
   - LLM-as-a-Judge evals
+
+![Evaluation driven development](assets/image7.png)  
 
 **Example of evaluation driven development:**
 
