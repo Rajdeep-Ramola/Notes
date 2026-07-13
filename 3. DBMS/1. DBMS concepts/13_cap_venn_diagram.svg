@@ -1,0 +1,44 @@
+<svg viewBox="0 0 640 560" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .circle-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 24px; font-weight: 700; }
+    .region-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: 700; }
+    .sub-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: 400; }
+    .center-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; font-weight: 700; }
+  </style>
+
+  <rect x="0" y="0" width="640" height="560" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="320" y="35" text-anchor="middle" class="circle-label" fill="#1a1a1a" font-size="26">CAP Theorem</text>
+
+  <!-- Three overlapping circles -->
+  <circle cx="260" cy="260" r="160" fill="#4C9AFF" fill-opacity="0.45" stroke="#1D6FE0" stroke-width="2"/>
+  <circle cx="380" cy="260" r="160" fill="#FF8A65" fill-opacity="0.45" stroke="#E64A19" stroke-width="2"/>
+  <circle cx="320" cy="380" r="160" fill="#66BB6A" fill-opacity="0.45" stroke="#2E7D32" stroke-width="2"/>
+
+  <!-- Circle titles -->
+  <text x="150" y="150" class="circle-label" fill="#0B3D91">Consistency</text>
+  <text x="440" y="150" class="circle-label" fill="#7A2600" text-anchor="end">Availability</text>
+  <text x="320" y="520" class="circle-label" fill="#1B4D1E" text-anchor="middle">Partition Tolerance</text>
+
+  <!-- Region: CA (Consistency + Availability, no Partition) -->
+  <text x="310" y="200" text-anchor="middle" class="region-label" fill="#0B3D91">CA</text>
+  <text x="310" y="220" text-anchor="middle" class="sub-label" fill="#0B3D91">MySQL, PostgreSQL</text>
+  <text x="310" y="234" text-anchor="middle" class="sub-label" fill="#0B3D91">(single node only)</text>
+
+  <!-- Region: CP (Consistency + Partition Tolerance, no Availability) -->
+  <text x="225" y="350" text-anchor="middle" class="region-label" fill="#1B4D1E">CP</text>
+  <text x="225" y="370" text-anchor="middle" class="sub-label" fill="#1B4D1E">MongoDB</text>
+
+  <!-- Region: AP (Availability + Partition Tolerance, no Consistency) -->
+  <text x="415" y="350" text-anchor="middle" class="region-label" fill="#7A2600">AP</text>
+  <text x="415" y="370" text-anchor="middle" class="sub-label" fill="#7A2600">Cassandra, DynamoDB</text>
+
+  <!-- Center: CAP (impossible) -->
+  <circle cx="320" cy="300" r="34" fill="#ffffff" fill-opacity="0.85" stroke="#666666" stroke-width="1"/>
+  <text x="320" y="296" text-anchor="middle" class="center-label" fill="#333333">CAP</text>
+  <text x="320" y="312" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#666666">not possible</text>
+
+  <!-- Legend note -->
+  <text x="320" y="550" text-anchor="middle" class="sub-label" fill="#444444">A distributed system can only guarantee any two of the three properties at once.</text>
+</svg>

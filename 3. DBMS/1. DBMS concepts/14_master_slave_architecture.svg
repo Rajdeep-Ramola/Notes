@@ -1,0 +1,65 @@
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 22px; font-weight: 700; }
+    .box-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 700; }
+    .sub-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 400; }
+    .arrow-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 600; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#444444"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="480" fill="#ffffff"/>
+  <text x="350" y="30" text-anchor="middle" class="title" fill="#1a1a1a">Master–Slave Database Architecture</text>
+
+  <!-- App instances -->
+  <rect x="230" y="55" width="90" height="45" rx="6" fill="#B3E5FC" stroke="#0277BD" stroke-width="1.5"/>
+  <text x="275" y="82" text-anchor="middle" class="box-label" fill="#01579B">App EC2 #1</text>
+
+  <rect x="380" y="55" width="90" height="45" rx="6" fill="#B3E5FC" stroke="#0277BD" stroke-width="1.5"/>
+  <text x="425" y="82" text-anchor="middle" class="box-label" fill="#01579B">App EC2 #2</text>
+
+  <!-- Master DB -->
+  <rect x="90" y="180" width="180" height="80" rx="8" fill="#FFCDD2" stroke="#C62828" stroke-width="2"/>
+  <text x="180" y="212" text-anchor="middle" class="box-label" fill="#B71C1C">Master DB</text>
+  <text x="180" y="230" text-anchor="middle" class="sub-label" fill="#B71C1C">Handles WRITES</text>
+  <text x="180" y="246" text-anchor="middle" class="sub-label" fill="#B71C1C">holds latest / true data</text>
+
+  <!-- Slave DBs -->
+  <rect x="420" y="150" width="180" height="70" rx="8" fill="#C8E6C9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="510" y="180" text-anchor="middle" class="box-label" fill="#1B5E20">Slave DB #1</text>
+  <text x="510" y="197" text-anchor="middle" class="sub-label" fill="#1B5E20">Handles READS</text>
+
+  <rect x="420" y="250" width="180" height="70" rx="8" fill="#C8E6C9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="510" y="280" text-anchor="middle" class="box-label" fill="#1B5E20">Slave DB #2</text>
+  <text x="510" y="297" text-anchor="middle" class="sub-label" fill="#1B5E20">Handles READS</text>
+
+  <!-- App -> Master (write) -->
+  <line x1="270" y1="100" x2="200" y2="180" stroke="#444444" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="185" y="145" class="arrow-label" fill="#B71C1C">WRITE</text>
+
+  <!-- App -> Slave (read) -->
+  <line x1="430" y1="100" x2="490" y2="150" stroke="#444444" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="450" y="130" class="arrow-label" fill="#1B5E20">READ</text>
+
+  <line x1="430" y1="100" x2="500" y2="250" stroke="#444444" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="440" y="190" class="arrow-label" fill="#1B5E20">READ</text>
+
+  <!-- Master -> Slave replication -->
+  <path d="M270,205 C330,175 370,175 420,180" stroke="#0277BD" stroke-width="2.5" fill="none" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="330" y="165" class="arrow-label" fill="#0277BD">replication</text>
+
+  <path d="M270,235 C330,265 370,275 420,280" stroke="#0277BD" stroke-width="2.5" fill="none" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="325" y="300" class="arrow-label" fill="#0277BD">replication</text>
+
+  <!-- Blocked master->master arrow -->
+  <line x1="420" y1="340" x2="270" y2="270" stroke="#999999" stroke-width="2" stroke-dasharray="3,3"/>
+  <line x1="380" y1="290" x2="400" y2="310" stroke="#C62828" stroke-width="3"/>
+  <line x1="400" y1="290" x2="380" y2="310" stroke="#C62828" stroke-width="3"/>
+  <text x="345" y="360" text-anchor="middle" class="sub-label" fill="#C62828">Slave should NOT accept writes</text>
+  <text x="345" y="376" text-anchor="middle" class="sub-label" fill="#C62828">(else it becomes Master-Master)</text>
+
+  <text x="350" y="440" text-anchor="middle" class="sub-label" fill="#444444">Writes always go to Master. Reads are distributed across Slaves. Master replicates data to Slaves.</text>
+</svg>
